@@ -56,7 +56,7 @@ public class WaypointPlayer : Pathfinding {
     {
         if (Path.Count > 0)
         {
-            lineRenderer.SetVertexCount(Path.Count);
+            lineRenderer.numPositions = Path.Count;
 
             for (int i = 0; i < Path.Count; i++)
             {
@@ -65,7 +65,7 @@ public class WaypointPlayer : Pathfinding {
         }
         else
         {
-            lineRenderer.SetVertexCount(0);
+            lineRenderer.numPositions = 0;
         }
     }
 }
