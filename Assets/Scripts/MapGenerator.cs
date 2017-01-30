@@ -111,7 +111,7 @@ public class MapGenerator : MonoBehaviour
 
 			if (targetPrefab != null)
 			{
-				Instantiate(targetPrefab, new Vector3(x * xStepsDiv + minLocation.transform.position.x, 0, z * zStepsDiv + minLocation.transform.position.z), transform.rotation, parent);
+				Instantiate(targetPrefab, new Vector3(x * xStepsDiv + minLocation.transform.position.x, 0.5f, z * zStepsDiv + minLocation.transform.position.z), transform.rotation, parent);
 			}
 		}
 

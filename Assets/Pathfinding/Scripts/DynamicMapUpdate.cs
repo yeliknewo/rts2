@@ -21,8 +21,8 @@ public class DynamicMapUpdate : MonoBehaviour
         if (transform.position != lastPosition)
         {
             Bounds bR = GetComponent<Renderer>().bounds;
-            Pathfinder.Instance.DynamicRaycastUpdate(lastBounds);
-            Pathfinder.Instance.DynamicRaycastUpdate(bR);
+            FindObjectOfType<Pathfinder>().DynamicRaycastUpdate(lastBounds);
+			FindObjectOfType<Pathfinder>().DynamicRaycastUpdate(bR);
             lastPosition = transform.position;
             lastBounds = bR;
         }
@@ -34,8 +34,8 @@ public class DynamicMapUpdate : MonoBehaviour
     private void UpdateMapOnce()
     {
         Bounds bR = GetComponent<Renderer>().bounds;
-        Pathfinder.Instance.DynamicRaycastUpdate(lastBounds);
-        Pathfinder.Instance.DynamicRaycastUpdate(bR);
+		FindObjectOfType<Pathfinder>().DynamicRaycastUpdate(lastBounds);
+		FindObjectOfType<Pathfinder>().DynamicRaycastUpdate(bR);
         lastPosition = transform.position;
         lastBounds = bR;
     }

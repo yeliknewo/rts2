@@ -18,7 +18,7 @@ public class Pathfinding : MonoBehaviour
     {
         if (PathType == PathfinderType.GridBased)
         {
-            Pathfinder.Instance.InsertInQueue(startPosition, endPosition, SetList);
+			FindObjectOfType<Pathfinder>().InsertInQueue(startPosition, endPosition, SetList);
         }
         else if (PathType == PathfinderType.WaypointBased)
         {
@@ -32,7 +32,7 @@ public class Pathfinding : MonoBehaviour
 		{	
 			if (PathType == PathfinderType.GridBased)
 	        {
-	            Pathfinder.Instance.InsertInQueue(arr[0], arr[1], SetList);
+	            FindObjectOfType<Pathfinder>().InsertInQueue(arr[0], arr[1], SetList);
 	        }
 	        else if (PathType == PathfinderType.WaypointBased)
 	        {

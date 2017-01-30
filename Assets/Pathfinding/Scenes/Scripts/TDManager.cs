@@ -68,7 +68,7 @@ public class TDManager : MonoBehaviour
             GameObject newTower = Instantiate(tower, new Vector3(Mathf.RoundToInt(hit.point.x) - 0.5F, 0.3F, Mathf.RoundToInt(hit.point.z) + 0.5F), Quaternion.identity) as GameObject;
             towers.Add(newTower);
             yield return new WaitForEndOfFrame();
-            Pathfinder.Instance.InsertInQueue(start.transform.position, end.transform.position, CheckRoute);
+			FindObjectOfType<Pathfinder>().InsertInQueue(start.transform.position, end.transform.position, CheckRoute);
         }      
     }
 

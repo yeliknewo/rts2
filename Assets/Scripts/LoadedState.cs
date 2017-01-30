@@ -6,5 +6,6 @@ public enum LoadedState
 {
 	None,
 	MapGen,
+	StartPathfinding,
 	Pathfinding,
 }

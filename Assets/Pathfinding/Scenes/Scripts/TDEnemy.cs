@@ -65,7 +65,7 @@ public class TDEnemy : Pathfinding
     IEnumerator PathRemoval(float speed)
     {
         pathMover = false;
-        yield return new WaitForSeconds((1 * Pathfinder.Instance.Tilesize) / speed);
+        yield return new WaitForSeconds((1 * FindObjectOfType<Pathfinder>().GetTilesize()) / speed);
         if (Path.Count > 0)
         {
             Path.RemoveAt(0);

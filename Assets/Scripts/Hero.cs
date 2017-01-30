@@ -79,8 +79,17 @@ public class Hero : MonoBehaviour
 
 	protected void SetupAttributes()
 	{
-		attributes.Add(Attributes.Strength, 0);
-		attributes.Add(Attributes.Agility, 0);
-		attributes.Add(Attributes.Intelligence, 0);
+		if(!attributes.ContainsKey(Attributes.Strength))
+		{
+			attributes.Add(Attributes.Strength, 0);
+		}
+		if (!attributes.ContainsKey(Attributes.Agility))
+		{
+			attributes.Add(Attributes.Agility, 0);
+		}
+		if (!attributes.ContainsKey(Attributes.Intelligence))
+		{
+			attributes.Add(Attributes.Intelligence, 0);
+		}
 	}
 }

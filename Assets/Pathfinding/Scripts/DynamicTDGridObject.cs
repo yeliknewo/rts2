@@ -44,15 +44,15 @@ public class DynamicTDGridObject : MonoBehaviour
         Bounds bR = GetComponent<Renderer>().bounds;
         Bounds bM = gameObject.GetComponent<MeshFilter>().mesh.bounds;
         checkList = DynamicSetupList(bR.min.x, bR.max.x, bR.min.z, bR.max.z, bR, bM);
-  
-        Pathfinder.Instance.DynamicMapEdit(checkList, UpdateList);
+
+		FindObjectOfType<Pathfinder>().DynamicMapEdit(checkList, UpdateList);
     }
 
     public void RemoveFromMap()
     {
         if (IDs != null)
         {
-            Pathfinder.Instance.DynamicRedoMapEdit(IDs);
+			FindObjectOfType<Pathfinder>().DynamicRedoMapEdit(IDs);
         }
     }
 
@@ -64,7 +64,7 @@ public class DynamicTDGridObject : MonoBehaviour
     private List<Vector3> DynamicSetupList(float minX, float maxX, float minZ, float maxZ, Bounds bR, Bounds bM)
     {      
         List<Vector3> checkList = new List<Vector3>();
-        float Tilesize = Pathfinder.Instance.Tilesize;
+        float Tilesize = FindObjectOfType<Pathfinder>().GetTilesize();
 
         for (float i = minZ; i < maxZ; i += Tilesize / 2)
         {

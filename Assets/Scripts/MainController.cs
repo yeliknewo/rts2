@@ -4,43 +4,24 @@ using UnityEngine;
 
 public class MainController : MonoBehaviour
 {
-	List<GameObject> targets = new List<GameObject>();
-	List<GameObject> pathfinders = new List<GameObject>();
-
-	LoadedState state = LoadedState.None;
+	Dictionary<LoadedState, List<GameObject>> objects = new Dictionary<LoadedState, List<GameObject>>();
 
 	public void GameLoaded(LoadedState state)
 	{
-		this.state = state;
-	}
-
-	private void Update()
-	{
-		if (state == LoadedState.MapGen || state == LoadedState.Pathfinding)
+		List<GameObject> targets = objects[state];
+		foreach (GameObject target in targets)
 		{
-			foreach (GameObject pathfinder in pathfinders)
-			{
-				pathfinder.SetActive(true);
-			}
-			pathfinders.Clear();
+			target.SetActive(true);
 		}
-		if (state == LoadedState.Pathfinding)
+		targets.Clear();
+	}
+
+	public void AddTarget(LoadedState state, GameObject target)
+	{
+		if (!objects.ContainsKey(state))
 		{
-			foreach (GameObject target in targets)
-			{
-				target.SetActive(true);
-			}
-			targets.Clear();
+			objects.Add(state, new List<GameObject>());
 		}
-	}
-
-	public void AddPathfinder(GameObject pathfinder)
-	{
-		pathfinders.Add(pathfinder);
-	}
-
-	public void AddTarget(GameObject target)
-	{
-		targets.Add(target);
+		objects[state].Add(target);
 	}
 }
