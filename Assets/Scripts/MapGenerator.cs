@@ -47,7 +47,7 @@ public class MapGenerator : MonoBehaviour
 	GameObject goldParent;
 	GameObject baseParent;
 
-	void Start()
+	void Awake()
 	{
 		Generate();
 	}
@@ -114,12 +114,5 @@ public class MapGenerator : MonoBehaviour
 				Instantiate(targetPrefab, new Vector3(x * xStepsDiv + minLocation.transform.position.x, 0.5f, z * zStepsDiv + minLocation.transform.position.z), transform.rotation, parent);
 			}
 		}
-
-		GetMain().GameLoaded(LoadedState.MapGen);
-	}
-
-	MainController GetMain()
-	{
-		return FindObjectOfType<MainController>();
 	}
 }
